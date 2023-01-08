@@ -1,14 +1,19 @@
-import { useState } from 'react'
-import { Link, Outlet } from 'react-router-dom'
-import NavBar from './Components/Navbar'
+import { BrowserRouter, Link, Outlet } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
+import Header from './Components/Header/';
+import Router from './Router';
+import { GlobalStyle } from './styles/global';
+import { defaultTheme } from './styles/themes/default';
 
 function App() {
 
   return (
-    <div className="App">
-      <NavBar/>
-      <Outlet/>
-    </div>
+   <ThemeProvider theme={defaultTheme}>
+      <BrowserRouter>
+        <Router/>
+      </BrowserRouter>
+      <GlobalStyle/>
+   </ThemeProvider>
   )
 }
 

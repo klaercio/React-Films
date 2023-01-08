@@ -5,7 +5,7 @@ import {chave} from "../../Config/ApiKey";
 const moviesUrl = 'https://api.themoviedb.org/3/movie/';
 const apiKey = `cd3083d8751566bac2b4e8c686449f54`;
 
-export default function Home() {
+export default function Home({name}) {
     const [topMovies, setTopMovies] = useState([]);
 
     const getTopRatedMovies = async (url) => {
