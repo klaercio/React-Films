@@ -17,16 +17,19 @@ export const GlobalStyle = createGlobalStyle`
 
     :focus {
         outline: 0;
-        box-shadow: 0 0 0 2px ${(props) => props.theme.white};
         border-radius: 2px;
         animation: time 1s 1;
     }
 
     @keyframes time {
-      to {
+      0% {
         box-shadow: 0 0 0 2px transparent;
-      } from {
+      } 
+      50% {
         box-shadow: 0 0 0 2px ${(props) => props.theme.white};
+      }
+      100% {
+        box-shadow: 0 0 0 2px transparent;
       }
         
     }

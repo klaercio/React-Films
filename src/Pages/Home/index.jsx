@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import MovieCard from "../../Components/MovieCard";
 import { Container } from "../../styles/global";
 
-const moviesUrl = 'https://api.themoviedb.org/3/movie/';
 const apiKey = `cd3083d8751566bac2b4e8c686449f54`;
 
 export default function Home({name}) {
