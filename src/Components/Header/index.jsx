@@ -10,7 +10,13 @@ export default function Header() {
 
     function handleNewPage(e) {
         event.preventDefault();
-        navigate(`search/${film}`)
+        film && navigate(`search/${film}`)
+    }
+
+    function handleSearchFilme() {
+        let search = event.target.value;
+        setFilm(search)
+        film && navigate(`search/${search}`)
     }
     return (
         <>
@@ -29,7 +35,7 @@ export default function Header() {
                             </ul>
                         </nav>
                         <form onSubmit={() => handleNewPage()}>
-                            <input type="text" placeholder="search for a movie" value={film} onChange={() => setFilm(event.target.value)}/>
+                            <input type="text" placeholder="search for a movie" value={film} onChange={handleSearchFilme}/>
                             <button type="submit"><BiSearchAlt2/></button>
                         </form>
                     </div>

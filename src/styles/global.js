@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import styled from 'styled-components';
+import background from '../assets/img/background3.jpg';
 
 export const GlobalStyle = createGlobalStyle`
     * {
@@ -10,9 +11,14 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        background: ${props => props.theme.white};
         color: ${props => props.theme['yellow-700']};
         -webkit-font-smoothing: antialiased;
+        background-image: url(${background});
+        background-attachment: fixed;
+        
+        &::-webkit-scrollbar {
+          display: none;  
+        }
     }
 
     :focus {
@@ -22,7 +28,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     @keyframes time {
-      0% {
+      to {
         box-shadow: 0 0 0 2px transparent;
       } 
       50% {
@@ -42,7 +48,10 @@ export const GlobalStyle = createGlobalStyle`
 `
 
 export const Container = styled.div`
-  max-width: 1200px;
   margin: 0 auto;
   width: 80rem;
+
+  .conteudo {
+    padding-top: 10rem;
+  }
 `

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import MovieCard from "../../Components/MovieCard";
 import { Container } from "../../styles/global";
+import { Lista } from "./style";
 
 const apiKey = `cd3083d8751566bac2b4e8c686449f54`;
 
@@ -22,10 +23,11 @@ export default function Home({name}) {
 
     return (
         <Container>
-            <div className="container">
-                <h2 className="title">Melhores Filmes</h2>
-                <div className="movies-container">
-                    {topMovies && topMovies.map((movie) => (<MovieCard movie={movie} key={movie.id}/>))}
+            <div className="conteudo">
+                <div>
+                    <Lista>
+                        {topMovies && topMovies.map((movie) => (<MovieCard movie={movie} key={movie.id}/>))}
+                    </Lista>
                 </div>
             </div>
         </Container>

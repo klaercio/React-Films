@@ -8,6 +8,7 @@ export const HeaderBox = styled.div`
     align-items: center;
     color: ${props => props.theme["yellow-700"]};
     position: fixed;
+    z-index: 1;
     
     header {
         max-width: 1200px;
@@ -79,6 +80,10 @@ export const HeaderBox = styled.div`
 
                     svg {
                         font-size: 30px;
+                    }
+
+                    &:hover {
+                        cursor: pointer;
                     }
                 }
             }
