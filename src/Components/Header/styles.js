@@ -7,6 +7,7 @@ export const HeaderBox = styled.div`
     display: flex;
     align-items: center;
     color: ${props => props.theme["yellow-700"]};
+    position: fixed;
     
     header {
         max-width: 1200px;
@@ -23,6 +24,10 @@ export const HeaderBox = styled.div`
 
             svg {
                 color: ${props => props.theme["yellow-700"]};
+            }
+
+            P {
+                font-weight: bold;
             }
         }
 
@@ -41,7 +46,7 @@ export const HeaderBox = styled.div`
                         a{
                             text-decoration: none; 
                             color: ${props => props.theme["yellow-700"]};
-                            
+                            font-weight: bold;
                             &:hover {
                                 filter: brightness(120%);
                             }

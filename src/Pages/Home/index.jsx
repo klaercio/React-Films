@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import MovieCard from "../../Components/MovieCard";
 import {chave} from "../../Config/ApiKey";
+import { Container } from "../../styles/global";
 
 const moviesUrl = 'https://api.themoviedb.org/3/movie/';
 const apiKey = `cd3083d8751566bac2b4e8c686449f54`;
@@ -21,12 +22,14 @@ export default function Home({name}) {
         .then(data => setTopMovies(data.results))
     }, [])
 
-    return <>
-        <div className="container">
-            <h2 className="title">Melhores Filmes</h2>
-            <div className="movies-container">
-                {topMovies && topMovies.map((movie) => (<MovieCard movie={movie} key={movie.id}/>))}
+    return (
+        <Container>
+            <div className="container">
+                <h2 className="title">Melhores Filmes</h2>
+                <div className="movies-container">
+                    {topMovies && topMovies.map((movie) => (<MovieCard movie={movie} key={movie.id}/>))}
+                </div>
             </div>
-        </div>
-    </>
+        </Container>
+    );
 }
