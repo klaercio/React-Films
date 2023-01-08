@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import MovieCard from "../../Components/MovieCard";
-import {chave} from "../../Config/ApiKey";
 import { Container } from "../../styles/global";
 
 const moviesUrl = 'https://api.themoviedb.org/3/movie/';
