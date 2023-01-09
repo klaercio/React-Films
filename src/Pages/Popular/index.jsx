@@ -11,10 +11,10 @@ export default function Popular() {
     const loaderRef = useRef(null);
 
     useEffect(() => {
-        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`)
+        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&page=${page}`)
         .then(response => response.json())
         .then(data => setTopMovies(atual => [...atual, ...data.results]))
-    }, []);
+    }, [page]);
 
     useEffect(() => {
         const options = {

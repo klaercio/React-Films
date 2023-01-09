@@ -10,10 +10,10 @@ export default function TopRated() {
     const loaderRef = useRef(null);
 
     useEffect(() => {
-        fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}`)
+        fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&page=${page}`)
         .then(response => response.json())
-        .then(data => setMovies(data.results))
-    }, [])
+        .then(data => setMovies(atual => [...atual, ...data.results]))
+    }, [page])
 
     useEffect(() => {
         const options = {

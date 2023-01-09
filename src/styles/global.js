@@ -15,10 +15,6 @@ export const GlobalStyle = createGlobalStyle`
         -webkit-font-smoothing: antialiased;
         background-image: url(${background});
         background-attachment: fixed;
-        
-        &::-webkit-scrollbar {
-          display: none;  
-        }
     }
 
     :focus {
