@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import MovieCard from "../../Components/MovieCard";
 import { Container } from "../../styles/global";
 import { Lista } from "./style";
@@ -6,12 +6,34 @@ import { Lista } from "./style";
 const apiKey = `cd3083d8751566bac2b4e8c686449f54`;
 export default function Home() {
     const [movies, setMovies] = useState([]);
+    const [page, setPage] = useState(1);
+    const loaderRef = useRef(null);
 
     useEffect(() => {
-        fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}`)
+        fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&page=${page}`)
         .then(response => response.json())
-        .then(data => setMovies(data.results))
-    }, [])
+        .then(data => setMovies(atual => [...atual, ...data.results]))
+    }, [page])
+
+    useEffect(() => {
+        const options = {
+          root: null,
+          rootMargin: "20px",
+          threshold: 1.0
+        };
+    
+        const observer = new IntersectionObserver((entities) => {
+          const target = entities[0];
+    
+          if (target.isIntersecting){
+            setPage(atual => atual + 1);
+          }
+        }, options);
+    
+        if (loaderRef.current){
+          observer.observe(loaderRef.current);
+        }
+      }, []);
 
     return (
         <Container>
@@ -19,8 +41,9 @@ export default function Home() {
                 <h1 style={{textAlign: "center", paddingBottom: '2rem'}}>upcoming movies in theatres</h1>
                 <div>
                     <Lista>
-                        {movies && movies.map((movie) => (<MovieCard movie={movie} key={movie.id}/>))}
+                        {movies && movies.map((movie, index) => (<MovieCard movie={movie} key={index}/>))}
                     </Lista>
+                    <p ref={loaderRef}>aaaaaaa</p>
                 </div>
             </div>
         </Container>
