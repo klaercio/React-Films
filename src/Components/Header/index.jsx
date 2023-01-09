@@ -8,15 +8,16 @@ export default function Header() {
 
     let navigate = useNavigate();
 
-    function handleNewPage(e) {
+    function handleNewPage() {
         event.preventDefault();
         film && navigate(`search/${film}`)
     }
 
     function handleSearchFilme() {
         let search = event.target.value;
-        setFilm(search)
-        film && navigate(`search/${search}`)
+        setFilm(search);
+        /* film && navigate(`search/${search}`) */
+        search === '' ? navigate('/') : navigate(`search/${search}`);
     }
     return (
         <>
@@ -24,7 +25,7 @@ export default function Header() {
                 <header>
                     <div className="logo">
                         <NavLink to="/"><BiCameraMovie size={60}/></NavLink>
-                        <p>MoviesLib</p>
+                        <p>all movies</p>
                     </div>
                     <div className="navegacao">
                         <nav>

@@ -1,6 +1,30 @@
+import { useState, useEffect } from "react";
+import MovieCard from "../../Components/MovieCard";
+import { Container } from "../../styles/global";
+import { Lista } from "./style";
+import { useParams } from "react-router-dom";
+
+const apiKey = `cd3083d8751566bac2b4e8c686449f54`;
 
 export default function Search() {
-    return <>
-        <h1>Search</h1>
-    </>
+    const [topMovies, setTopMovies] = useState([]);
+    const {name} = useParams();
+
+    useEffect(() => {
+        fetch(`https://api.themoviedb.org/3/search/movie/?api_key=${apiKey}&query=${name}`)
+        .then(response => response.json())
+        .then(data => setTopMovies(data.results))
+    }, [name])
+
+    return (
+        <Container>
+            <div className="conteudo">
+                <div>
+                    <Lista>
+                        {topMovies && topMovies.map((movie) => (<MovieCard movie={movie} key={movie.id}/>))}
+                    </Lista>
+                </div>
+            </div>
+        </Container>
+    );
 }
