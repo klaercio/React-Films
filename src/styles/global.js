@@ -45,7 +45,7 @@ export const GlobalStyle = createGlobalStyle`
 
 export const Container = styled.div`
   margin: 0 auto;
-  width: 80rem;
+  width: 70%;
 
   .conteudo {
     padding-top: 10rem;

@@ -4,8 +4,6 @@ export const Card = styled.li`
     display: flex;
     flex-direction : column;
     align-items : center;
-    width: 25%;
-    padding-bottom: 1rem;
 
         
     img {
