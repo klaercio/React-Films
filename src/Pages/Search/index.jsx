@@ -11,10 +11,12 @@ export default function Search() {
     const {name} = useParams();
 
     useEffect(() => {
-        fetch(`https://api.themoviedb.org/3/search/movie/?api_key=${apiKey}&query=${name}`)
+        fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${name}`)
         .then(response => response.json())
         .then(data => setTopMovies(data.results))
     }, [name])
+
+    console.log('CHEGOU AQUI', topMovies)
  
     return (
         <Container>
