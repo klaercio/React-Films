@@ -15,8 +15,6 @@ export default function Search() {
         .then(response => response.json())
         .then(data => setTopMovies(data.results))
     }, [name])
-
-    console.log('CHEGOU AQUI', topMovies)
  
     return (
         <Container>

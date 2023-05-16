@@ -25,7 +25,7 @@ export const Container = styled.div`
         max-width: 50%;
     }
     button {
-        background-color: #6654da;
+        background-color: #1C2EA7;;
         border: none;
         cursor: pointer;
         border-radius: 1rem;
@@ -36,7 +36,7 @@ export const Container = styled.div`
         transition: all 0.3s;
     }
     button:hover {
-        background-color: #5848c2;
+        filter: brightness(150%);
         transform: scale(1.05);
     }
     span {

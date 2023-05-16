@@ -25,7 +25,7 @@ export default function Header() {
                 <header>
                     <div className="logo">
                         <NavLink to="/"><BiCameraMovie size={60}/></NavLink>
-                        <p>all movies</p>
+                        <p>MoviAll</p>
                     </div>
                     <div className="navegacao">
                         <nav>
