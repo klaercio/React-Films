@@ -1,8 +1,9 @@
 import { NavLink, Outlet, useNavigate} from "react-router-dom";
 import { BiCameraMovie, BiSearchAlt2} from 'react-icons/bi';
-import { HeaderBox, ListBotao, CloseList } from "./styles";
+import { HeaderBox, ListBotao, CloseList} from "./styles";
 import { useState } from "react";
 import ButtonToTop from "../ButtonToTop";
+import classNames from "classnames";
 
 export default function Header() {
     const [film, setFilm] = useState('');
@@ -20,6 +21,12 @@ export default function Header() {
         setFilm(search);
         search === '' ? navigate('/') : navigate(`search/${search}`);
     }
+
+    function opemMenu(visivel) {
+        setShowMenu(visivel);
+    }
+
+    const altura = window.screen.height;
 
     return (
         <>
@@ -42,7 +49,23 @@ export default function Header() {
                             <button type="submit"><BiSearchAlt2/></button>
                         </form>
                     </div>
-                    <div className="menuBotao" onClick={() => setShowMenu(atual => !atual)}>{showMenu === true? <CloseList/>: <ListBotao/>}</div>
+                    <div className="menuBotao">{showMenu === true? <CloseList onClick={() => opemMenu(false)}/>: <ListBotao onClick={() => opemMenu(true)}/>}</div>
+                    <div className={classNames({
+                        ["menuMobile"]: true,
+                        ["mostrarMenu"]: showMenu,
+                    })} altura={altura}>
+                        <nav>
+                            <ul>
+                                <li><NavLink to='/' onClick={() => setShowMenu(false)}>HOME</NavLink></li>
+                                <li><NavLink to='/TopRated' onClick={() => setShowMenu(false)}>TOP RATED</NavLink></li>
+                                <li><NavLink to='/Popular' onClick={() => setShowMenu(false)}>POPULAR</NavLink></li>
+                            </ul>
+                        </nav>
+                        <form onSubmit={() => handleNewPage()}>
+                            <input type="text" placeholder="search for a movie" value={film} onChange={handleSearchFilme}/>
+                            <button type="submit" onClick={() => setShowMenu(false)}><BiSearchAlt2/></button>
+                        </form>
+                    </div>
                 </header>
             </HeaderBox>
             <Outlet/>
