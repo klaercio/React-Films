@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import MovieCard from "../../Components/MovieCard";
 import { Container } from "../../styles/global";
 import { Lista } from "./style";
+import ButtonToTop from "../../Components/ButtonToTop";
 
 const apiKey = `cd3083d8751566bac2b4e8c686449f54`;
 
@@ -44,6 +45,7 @@ export default function Popular() {
                         {topMovies && topMovies.map((movie, index) => (<MovieCard movie={movie} key={index}/>))}
                     </Lista>
                     <p ref={loaderRef}>aaaaaaa</p>
+                    <ButtonToTop/>
                 </div>
             </div>
         </Container>

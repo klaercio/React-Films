@@ -1,10 +1,12 @@
 import { NavLink, Outlet, useNavigate} from "react-router-dom";
 import { BiCameraMovie, BiSearchAlt2} from 'react-icons/bi';
-import { HeaderBox, ListBotao } from "./styles";
+import { HeaderBox, ListBotao, CloseList } from "./styles";
 import { useState } from "react";
+import ButtonToTop from "../ButtonToTop";
 
 export default function Header() {
     const [film, setFilm] = useState('');
+    const [showMenu, setShowMenu] = useState(false);
 
     let navigate = useNavigate();
 
@@ -18,6 +20,7 @@ export default function Header() {
         setFilm(search);
         search === '' ? navigate('/') : navigate(`search/${search}`);
     }
+
     return (
         <>
             <HeaderBox>
@@ -39,7 +42,7 @@ export default function Header() {
                             <button type="submit"><BiSearchAlt2/></button>
                         </form>
                     </div>
-                    <div className="menuBotao"><ListBotao/></div>
+                    <div className="menuBotao" onClick={() => setShowMenu(atual => !atual)}>{showMenu === true? <CloseList/>: <ListBotao/>}</div>
                 </header>
             </HeaderBox>
             <Outlet/>

@@ -11,11 +11,28 @@ export const Container = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: 0 auto;
-        
+        margin: 0 auto; 
 
-        @media screen and (max-width: 1024px) {
+
+        @media screen and (max-width: 900px) {
             flex-direction: column;
+
+            .details {
+                margin-left: 0;
+                text-align: center;
+            }
+
+            h1 {
+                margin: 3rem auto;
+            }
+
+            .lancamento {
+                margin: 0rem auto 1rem auto;
+            }
+
+            button {
+                margin: 0 auto;
+            }
         }
     }
 

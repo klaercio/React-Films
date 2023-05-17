@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { List } from "@phosphor-icons/react";
+import { List, X} from "@phosphor-icons/react";
 
 export const HeaderBox = styled.div`
     width: 100%;
@@ -93,7 +93,7 @@ export const HeaderBox = styled.div`
             position: absolute;
          }
 
-          @media screen and (max-width: 800px) {
+          @media screen and (max-width: 1024px) {
             .navegacao {
                 display: none;
                 visibility: hidden;
@@ -111,7 +111,20 @@ export const ListBotao = styled(List)`
     display: none;
     visibility: hidden;
 
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 1024px) {
+        display: block;
+        visibility: visible;
+        margin: auto 0;
+        width: 64px;
+        height: 64px;
+    }
+`
+
+export const CloseList = styled(X)`
+    display: none;
+    visibility: hidden;
+
+    @media screen and (max-width: 1024px) {
         display: block;
         visibility: visible;
         margin: auto 0;
