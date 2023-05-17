@@ -1,6 +1,6 @@
 import { NavLink, Outlet, useNavigate} from "react-router-dom";
 import { BiCameraMovie, BiSearchAlt2} from 'react-icons/bi';
-import { HeaderBox } from "./styles";
+import { HeaderBox, ListBotao } from "./styles";
 import { useState } from "react";
 
 export default function Header() {
@@ -16,7 +16,6 @@ export default function Header() {
     function handleSearchFilme() {
         let search = event.target.value;
         setFilm(search);
-        /* film && navigate(`search/${search}`) */
         search === '' ? navigate('/') : navigate(`search/${search}`);
     }
     return (
@@ -25,7 +24,7 @@ export default function Header() {
                 <header>
                     <div className="logo">
                         <NavLink to="/"><BiCameraMovie size={60}/></NavLink>
-                        <p>MoviAll</p>
+                        <span>MoviAll</span>
                     </div>
                     <div className="navegacao">
                         <nav>
@@ -40,6 +39,7 @@ export default function Header() {
                             <button type="submit"><BiSearchAlt2/></button>
                         </form>
                     </div>
+                    <div className="menuBotao"><ListBotao/></div>
                 </header>
             </HeaderBox>
             <Outlet/>

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { List } from "@phosphor-icons/react";
 
 export const HeaderBox = styled.div`
     width: 100%;
@@ -88,5 +89,33 @@ export const HeaderBox = styled.div`
                 }
             }
          }
+         .menuBotao {
+            position: absolute;
+         }
+
+          @media screen and (max-width: 800px) {
+            .navegacao {
+                display: none;
+                visibility: hidden;
+            }
+
+            .menuBotao {
+                right: 1rem;
+            }
+         }
+    }
+`
+
+export const ListBotao = styled(List)`
+
+    display: none;
+    visibility: hidden;
+
+    @media screen and (max-width: 800px) {
+        display: block;
+        visibility: visible;
+        margin: auto 0;
+        width: 64px;
+        height: 64px;
     }
 `
