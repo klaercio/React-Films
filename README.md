@@ -41,7 +41,7 @@
 
 ## Layout ou Deploy da Aplicação :dash:
 
-> Link do deploy da aplicação:https://filmeslib.vercel.app
+> Link do deploy da aplicação: <a href="https://filmeslib.vercel.app" target="__blank">https://filmeslib.vercel.app</a>
 
 ... 
 
